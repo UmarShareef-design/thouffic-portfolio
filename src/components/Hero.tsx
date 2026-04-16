@@ -21,7 +21,7 @@ export default function Hero() {
           <div className="relative inline-block">
             <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-white dark:ring-neutral-800 shadow-xl shadow-primary-500/10">
               <img
-                src="/profile-image.webp"
+                src={`${import.meta.env.BASE_URL}profile-image.webp`}
                 alt="Mohammed Thouffic"
                 fetchPriority="high"
                 loading="eager"
@@ -86,7 +86,7 @@ export default function Hero() {
             <ArrowDown size={16} className="group-hover:translate-y-0.5 transition-transform" />
           </a>
           <a
-            href="/resume.pdf"
+            href={`${import.meta.env.BASE_URL}resume.pdf`}
             download
             className="group inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 text-sm font-medium text-neutral-700 dark:text-neutral-200 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg hover:border-neutral-300 dark:hover:border-neutral-600 hover:shadow-md transition-all duration-300"
           >
