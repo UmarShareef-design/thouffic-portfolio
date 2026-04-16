@@ -40,7 +40,7 @@ export default function Projects() {
   return (
     <section id="projects" className="relative py-12 sm:py-16 md:py-20 bg-neutral-50 dark:bg-neutral-950 overflow-hidden">
       {/* Dot grid background */}
-      <div className="absolute inset-0 dot-grid" />
+      <div className="absolute inset-0 dot-grid" aria-hidden="true" />
       <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

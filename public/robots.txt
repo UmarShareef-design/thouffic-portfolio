@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://umarshareef-design.github.io/thouffic-portfolio/sitemap.xml

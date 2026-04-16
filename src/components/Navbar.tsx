@@ -13,6 +13,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('');
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
@@ -21,9 +22,35 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    const sections = navLinks.map((link) => document.querySelector(link.href));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(`#${entry.target.id}`);
+          }
+        });
+      },
+      { rootMargin: '-40% 0px -60% 0px' },
+    );
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   const handleClick = () => setMobileOpen(false);
 
   return (
+    <>
+      {/* Skip to content link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-lg focus:text-sm focus:font-medium focus:shadow-lg"
+      >
+        Skip to content
+      </a>
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -48,7 +75,12 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm font-medium text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary-500 after:transition-all after:duration-300 hover:after:w-full"
+                  aria-current={activeSection === link.href ? 'true' : undefined}
+                  className={`text-sm font-medium transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary-500 after:transition-all after:duration-300 hover:after:w-full ${
+                    activeSection === link.href
+                      ? 'text-primary-600 dark:text-primary-400 after:w-full'
+                      : 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100'
+                  }`}
                 >
                   {link.label}
                 </a>
@@ -123,7 +155,12 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     onClick={handleClick}
-                    className="flex items-center py-2 min-h-[44px] text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                    aria-current={activeSection === link.href ? 'true' : undefined}
+                    className={`flex items-center py-2 min-h-[44px] text-sm font-medium transition-colors ${
+                      activeSection === link.href
+                        ? 'text-primary-600 dark:text-primary-400'
+                        : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100'
+                    }`}
                   >
                     {link.label}
                   </a>
@@ -134,5 +171,6 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </motion.header>
+    </>
   );
 }

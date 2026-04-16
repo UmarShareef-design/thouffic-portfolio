@@ -33,7 +33,7 @@ export default function About() {
   return (
     <section id="about" className="relative py-12 sm:py-16 md:py-20 bg-white dark:bg-neutral-900 overflow-hidden">
       {/* Dot grid background */}
-      <div className="absolute inset-0 dot-grid" />
+      <div className="absolute inset-0 dot-grid" aria-hidden="true" />
       <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -87,11 +87,11 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
-                className="group p-4 sm:p-5 rounded-xl border border-neutral-100 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-800/50 hover:bg-primary-50/50 dark:hover:bg-primary-950/50 hover:border-primary-200 dark:hover:border-primary-800 transition-all duration-300"
+                className="group p-4 sm:p-5 rounded-xl border border-neutral-100 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-800/50 hover:border-neutral-200 dark:hover:border-neutral-600 transition-colors duration-300"
               >
                 <item.icon
                   size={22}
-                  className="text-neutral-400 dark:text-neutral-500 group-hover:text-primary-500 dark:group-hover:text-primary-400 transition-colors mb-3"
+                  className="text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-500 dark:group-hover:text-neutral-300 transition-colors mb-3"
                 />
                 <h3 className="text-xs sm:text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-1">
                   {item.label}

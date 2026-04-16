@@ -55,7 +55,7 @@ export default function Skills() {
   return (
     <section id="skills" className="relative py-12 sm:py-16 md:py-20 bg-white dark:bg-neutral-900 overflow-hidden">
       {/* Dot grid background */}
-      <div className="absolute inset-0 dot-grid" />
+      <div className="absolute inset-0 dot-grid" aria-hidden="true" />
       <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -82,13 +82,13 @@ export default function Skills() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 + i * 0.08 }}
-              className="group p-4 sm:p-6 rounded-2xl border border-neutral-100 dark:border-neutral-700 bg-neutral-50/30 dark:bg-neutral-800/30 hover:bg-primary-50/30 dark:hover:bg-primary-950/30 hover:border-primary-200 dark:hover:border-primary-800 transition-all duration-300"
+              className="group p-4 sm:p-6 rounded-2xl border border-neutral-100 dark:border-neutral-700 bg-neutral-50/30 dark:bg-neutral-800/30 hover:border-neutral-200 dark:hover:border-neutral-600 transition-colors duration-300"
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className="p-2.5 rounded-xl bg-neutral-100 dark:bg-neutral-700 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/50 transition-colors">
+                <div className="p-2.5 rounded-xl bg-neutral-100 dark:bg-neutral-700 transition-colors">
                   <skill.icon
                     size={20}
-                    className="text-neutral-500 dark:text-neutral-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
+                    className="text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors"
                   />
                 </div>
                 <div className="flex-1 min-w-0">

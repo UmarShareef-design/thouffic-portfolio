@@ -10,7 +10,7 @@ export default function App() {
   return (
     <div className="font-sans antialiased text-neutral-600 dark:text-neutral-300 bg-white dark:bg-neutral-900 transition-colors duration-300">
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Projects />

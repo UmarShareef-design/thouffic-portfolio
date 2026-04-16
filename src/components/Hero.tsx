@@ -8,7 +8,7 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-neutral-50 dark:bg-neutral-950"
     >
       {/* Dot grid background */}
-      <div className="absolute inset-0 dot-grid" />
+      <div className="absolute inset-0 dot-grid" aria-hidden="true" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-6 text-center">
         {/* Profile Image */}
