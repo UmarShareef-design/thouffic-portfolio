@@ -40,14 +40,14 @@ const links: { icon: IconComponent; label: string; value: string; href: string }
   {
     icon: MailIcon,
     label: 'Email',
-    value: 'thouffic@example.com',
-    href: 'mailto:thouffic@example.com',
+    value: 'hithoufi@gmail.com',
+    href: 'mailto:hithoufi@gmail.com',
   },
   {
     icon: LinkedInIcon,
     label: 'LinkedIn',
-    value: 'linkedin.com/in/thouffic',
-    href: 'https://linkedin.com/in/thouffic',
+    value: 'linkedin.com/in/mohammed-thouffic-s-41084b213',
+    href: 'https://linkedin.com/in/mohammed-thouffic-s-41084b213',
   },
   {
     icon: GitHubIcon,
@@ -59,11 +59,13 @@ const links: { icon: IconComponent; label: string; value: string; href: string }
 
 export default function Contact() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section id="contact" className="py-16 sm:py-24 md:py-32 bg-white dark:bg-neutral-900">
-      <div ref={ref} className="max-w-6xl mx-auto px-5 sm:px-6">
+    <section id="contact" className="relative py-12 sm:py-16 md:py-20 bg-white dark:bg-neutral-900 overflow-hidden">
+      {/* Topographic background pattern */}
+      <div className="absolute inset-0 topo-pattern pointer-events-none" />
+      <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6">
         <div className="max-w-2xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -77,7 +79,7 @@ export default function Contact() {
               Let's build something{' '}
               <span className="text-primary-500">great</span>
             </h2>
-            <p className="text-sm sm:text-base text-neutral-500 dark:text-neutral-400 leading-relaxed mb-8 sm:mb-12">
+            <p className="text-sm sm:text-base text-neutral-500 dark:text-neutral-400 leading-[1.7] mb-8 sm:mb-12">
               Whether you're looking for a senior React developer, need help
               architecting a scalable front-end, or want to discuss an
               opportunity — I'd love to hear from you.

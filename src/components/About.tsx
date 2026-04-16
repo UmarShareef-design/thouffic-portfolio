@@ -12,7 +12,7 @@ const highlights = [
   {
     icon: Globe,
     label: '30+ Locales',
-    description: 'Deep i18n expertise across diverse markets',
+    description: 'Worked along with Agencies for foreign language translations',
   },
   {
     icon: Zap,
@@ -28,16 +28,18 @@ const highlights = [
 
 export default function About() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section id="about" className="py-16 sm:py-24 md:py-32 bg-white dark:bg-neutral-900">
-      <div ref={ref} className="max-w-6xl mx-auto px-5 sm:px-6">
+    <section id="about" className="relative py-12 sm:py-16 md:py-20 bg-white dark:bg-neutral-900 overflow-hidden">
+      {/* Topographic background pattern */}
+      <div className="absolute inset-0 topo-pattern pointer-events-none" />
+      <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-10 sm:mb-16"
+          className="mb-8 sm:mb-10"
         >
           <span className="text-xs font-mono font-medium tracking-wider text-primary-500 uppercase mb-3 block">
             About
@@ -54,19 +56,19 @@ export default function About() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed mb-4 sm:mb-5">
+            <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-[1.7] mb-4 sm:mb-5">
               I'm <strong className="text-neutral-900 dark:text-neutral-100 font-semibold">Mohammed Thouffic</strong>, a senior
               front-end developer with deep expertise in the React ecosystem. I specialize in building
               large-scale, maintainable web applications that serve millions of users.
             </p>
-            <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed mb-4 sm:mb-5">
+            <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-[1.7] mb-4 sm:mb-5">
               My work centers on architecting React applications that are not just functional — but
               scalable, performant, and accessible. From designing component libraries and state
               management strategies to implementing internationalization across{' '}
               <strong className="text-neutral-900 dark:text-neutral-100 font-semibold">30+ locales</strong>, I bring a
               comprehensive approach to front-end development.
             </p>
-            <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed">
+            <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-[1.7]">
               Beyond code, I'm passionate about mentoring developers, establishing engineering best
               practices, and bridging the gap between technical execution and product vision. I believe
               great software is built at the intersection of craft and collaboration.

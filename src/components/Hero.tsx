@@ -7,20 +7,8 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-neutral-50 dark:bg-neutral-950"
     >
-      {/* Decorative grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(59,130,246,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.06)_1px,transparent_1px)] bg-[size:60px_60px]" />
-
-      {/* Decorative floating shapes */}
-      <motion.div
-        className="absolute top-20 left-[10%] w-48 sm:w-72 h-48 sm:h-72 rounded-full bg-primary-200/20 dark:bg-primary-800/10 blur-3xl"
-        animate={{ y: [0, 30, 0], x: [0, 15, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-[10%] w-64 sm:w-96 h-64 sm:h-96 rounded-full bg-primary-100/30 dark:bg-primary-900/15 blur-3xl"
-        animate={{ y: [0, -30, 0], x: [0, -15, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-      />
+      {/* Topographic background pattern */}
+      <div className="absolute inset-0 topo-pattern pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-6 text-center">
         {/* Profile Image */}
@@ -77,7 +65,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.65 }}
-          className="max-w-xl mx-auto text-sm sm:text-base text-neutral-400 dark:text-neutral-500 leading-relaxed mb-6 sm:mb-10"
+          className="max-w-xl mx-auto text-sm sm:text-base text-neutral-400 dark:text-neutral-500 leading-[1.7] mb-6 sm:mb-10"
         >
           Building scalable, high-performance web applications with React.
           Specializing in internationalization across 30+ locales and

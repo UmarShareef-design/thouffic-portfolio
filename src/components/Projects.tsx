@@ -35,16 +35,18 @@ const projects = [
 
 export default function Projects() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section id="projects" className="py-16 sm:py-24 md:py-32 bg-neutral-50 dark:bg-neutral-950">
-      <div ref={ref} className="max-w-6xl mx-auto px-5 sm:px-6">
+    <section id="projects" className="relative py-12 sm:py-16 md:py-20 bg-neutral-50 dark:bg-neutral-950 overflow-hidden">
+      {/* Topographic background pattern */}
+      <div className="absolute inset-0 topo-pattern pointer-events-none" />
+      <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-10 sm:mb-16"
+          className="mb-8 sm:mb-10"
         >
           <span className="text-xs font-mono font-medium tracking-wider text-primary-500 uppercase mb-3 block">
             Projects
@@ -52,7 +54,7 @@ export default function Projects() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-900 dark:text-neutral-50 tracking-tight mb-3 sm:mb-4">
             Featured <span className="text-primary-500">work</span>
           </h2>
-          <p className="text-base text-neutral-500 dark:text-neutral-400 max-w-lg">
+          <p className="text-sm sm:text-base text-neutral-500 dark:text-neutral-400 max-w-lg leading-[1.7]">
             A selection of projects that showcase my approach to building scalable,
             performant React applications.
           </p>
@@ -79,7 +81,7 @@ export default function Projects() {
                 {project.title}
               </h3>
 
-              <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed mb-5">
+              <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-[1.7] mb-5">
                 {project.description}
               </p>
 

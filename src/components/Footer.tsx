@@ -4,8 +4,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-6 sm:py-8 bg-neutral-900 dark:bg-neutral-950 text-neutral-400">
-      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+    <footer className="relative py-6 sm:py-8 bg-neutral-900 dark:bg-neutral-950 text-neutral-400 overflow-hidden">
+      {/* Topographic background pattern */}
+      <div className="absolute inset-0 topo-pattern pointer-events-none" />
+      <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-1.5 text-xs">
             <span>© {currentYear} Mohammed Thouffic</span>
@@ -17,13 +19,13 @@ export default function Footer() {
 
           <div className="flex items-center gap-4 sm:gap-6">
             <a
-              href="mailto:thouffic@example.com"
+              href="mailto:hithoufi@gmail.com"
               className="text-xs text-neutral-500 hover:text-neutral-300 transition-colors"
             >
               Email
             </a>
             <a
-              href="https://linkedin.com/in/thouffic"
+              href="https://linkedin.com/in/mohammed-thouffic-s-41084b213"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs text-neutral-500 hover:text-neutral-300 transition-colors"

@@ -15,57 +15,53 @@ const skills = [
     name: 'React',
     description:
       'Deep expertise in React architecture, hooks, concurrent features, and the full ecosystem.',
-    level: 95,
   },
   {
     icon: Braces,
     name: 'JavaScript',
     description:
       'Advanced ES6+ patterns, async programming, closures, and modern JS fundamentals.',
-    level: 92,
   },
   {
     icon: FileType2,
     name: 'TypeScript',
     description:
       'Strong typing, generics, discriminated unions, and type-safe API design.',
-    level: 90,
   },
   {
     icon: Layers,
     name: 'State Management',
     description:
       'Redux, Zustand, React Query, Context API — choosing the right tool for the job.',
-    level: 88,
   },
   {
     icon: Gauge,
     name: 'Performance Optimization',
     description:
       'Code splitting, lazy loading, memoization, Core Web Vitals, and rendering optimization.',
-    level: 90,
   },
   {
     icon: Users,
     name: 'Leadership',
     description:
       'Technical mentorship, architecture decisions, code review culture, and team growth.',
-    level: 85,
   },
 ];
 
 export default function Skills() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section id="skills" className="py-16 sm:py-24 md:py-32 bg-white dark:bg-neutral-900">
-      <div ref={ref} className="max-w-6xl mx-auto px-5 sm:px-6">
+    <section id="skills" className="relative py-12 sm:py-16 md:py-20 bg-white dark:bg-neutral-900 overflow-hidden">
+      {/* Topographic background pattern */}
+      <div className="absolute inset-0 topo-pattern pointer-events-none" />
+      <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-10 sm:mb-16"
+          className="mb-8 sm:mb-10"
         >
           <span className="text-xs font-mono font-medium tracking-wider text-primary-500 uppercase mb-3 block">
             Skills
@@ -73,7 +69,7 @@ export default function Skills() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-900 dark:text-neutral-50 tracking-tight mb-3 sm:mb-4">
             Technical <span className="text-primary-500">expertise</span>
           </h2>
-          <p className="text-base text-neutral-500 dark:text-neutral-400 max-w-lg">
+          <p className="text-sm sm:text-base text-neutral-500 dark:text-neutral-400 max-w-lg leading-[1.7]">
             The core competencies I bring to every project — from writing
             performant code to leading high-impact teams.
           </p>
@@ -102,24 +98,9 @@ export default function Skills() {
                 </div>
               </div>
 
-              <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed mb-4">
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-[1.7]">
                 {skill.description}
               </p>
-
-              {/* Skill bar */}
-              <div className="relative">
-                <div className="h-1.5 rounded-full bg-neutral-100 dark:bg-neutral-700 overflow-hidden">
-                  <motion.div
-                    className="h-full rounded-full bg-gradient-to-r from-primary-400 to-primary-600"
-                    initial={{ width: 0 }}
-                    animate={isInView ? { width: `${skill.level}%` } : {}}
-                    transition={{ duration: 1, delay: 0.5 + i * 0.08, ease: 'easeOut' }}
-                  />
-                </div>
-                <span className="absolute -top-5 right-0 text-[10px] font-mono text-neutral-400 dark:text-neutral-500">
-                  {skill.level}%
-                </span>
-              </div>
             </motion.div>
           ))}
         </div>
