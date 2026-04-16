@@ -63,8 +63,8 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative py-12 sm:py-16 md:py-20 bg-white dark:bg-neutral-900 overflow-hidden">
-      {/* Topographic background pattern */}
-      <div className="absolute inset-0 topo-pattern pointer-events-none" />
+      {/* Dot grid background */}
+      <div className="absolute inset-0 dot-grid" />
       <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6">
         <div className="max-w-2xl mx-auto text-center">
           <motion.div

@@ -5,8 +5,8 @@ export default function Footer() {
 
   return (
     <footer className="relative py-6 sm:py-8 bg-neutral-900 dark:bg-neutral-950 text-neutral-400 overflow-hidden">
-      {/* Topographic background pattern */}
-      <div className="absolute inset-0 topo-pattern pointer-events-none" />
+      {/* Dot grid background */}
+      <div className="absolute inset-0 dot-grid" />
       <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-1.5 text-xs">

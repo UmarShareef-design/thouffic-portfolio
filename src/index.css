@@ -50,16 +50,15 @@ body {
   color: var(--color-primary-100);
 }
 
-/* Topographic background pattern */
-.topo-pattern {
-  background-image: url('/topo-pattern.svg');
-  background-repeat: repeat;
-  background-size: 500px 500px;
-  opacity: 0.6;
+/* Dot grid background pattern */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(59, 130, 246, 0.12) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  pointer-events: none;
 }
 
-.dark .topo-pattern {
-  opacity: 0.3;
+.dark .dot-grid {
+  background-image: radial-gradient(circle, rgba(59, 130, 246, 0.18) 1.5px, transparent 1.5px);
 }
 
 /* Scrollbar styling */
